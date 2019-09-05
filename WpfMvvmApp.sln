@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfMvvmApp", "WpfMvvmApp.csproj", "{AD84FC8B-4923-41F6-882A-D1E1FB773852}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{46C4017A-E05B-45EB-82AA-36E04219B804}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO", "DAO\DAO.csproj", "{19B5A55F-AE15-4EE4-8688-E2914B79D33C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD84FC8B-4923-41F6-882A-D1E1FB773852}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD84FC8B-4923-41F6-882A-D1E1FB773852}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD84FC8B-4923-41F6-882A-D1E1FB773852}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD84FC8B-4923-41F6-882A-D1E1FB773852}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46C4017A-E05B-45EB-82AA-36E04219B804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46C4017A-E05B-45EB-82AA-36E04219B804}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46C4017A-E05B-45EB-82AA-36E04219B804}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46C4017A-E05B-45EB-82AA-36E04219B804}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19B5A55F-AE15-4EE4-8688-E2914B79D33C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19B5A55F-AE15-4EE4-8688-E2914B79D33C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19B5A55F-AE15-4EE4-8688-E2914B79D33C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19B5A55F-AE15-4EE4-8688-E2914B79D33C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

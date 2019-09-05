@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="WpfMvvmApp.Views.TestListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfMvvmApp.Views"
+             xmlns:viewmodels="clr-namespace:WpfMvvmApp.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Width="600">
+            <StackPanel Orientation="Horizontal">
+                <Label Width="300" Content="Nazwa testu" FontSize="14" Background="Black" Foreground="White"/>
+                <Label Width="150" Content="Liczba pytań" FontSize="14" Background="Black" Foreground="White"/>
+                <Label Width="150" Content="Punkty" FontSize="14" Background="Black" Foreground="White"/>
+            </StackPanel>
+            <ListBox ItemsSource="{Binding Tests}" SelectedItem="{Binding SelectedTest}" Background="White" MaxHeight="200"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding Test.Text}" Width="300" MaxWidth="300" FontSize="12" Background="White" Foreground="Black"/>
+                            <Label Content="{Binding Test.PointsTotal}" Width="150" MaxWidth="150" FontSize="12" Background="White" Foreground="Black"/>
+                            <Label Content="{Binding Test.PointsTotal}" Width="150" MaxWidth="150" FontSize="12" Background="White" Foreground="Black"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Width="600" Orientation="Horizontal" VerticalAlignment="Center">
+            <Button Content="Włącz Quiz!" Command="{Binding StartTestCommand}" Width="600" Height="40"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
