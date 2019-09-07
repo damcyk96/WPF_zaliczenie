@@ -1,6 +1,7 @@
 ﻿using Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace DAO
 
         public DAO()
         {
-            MakeMocks();
+            MakeTests();
         }
 
         public IEnumerable<ITest> GetAllTests()
@@ -48,32 +49,52 @@ namespace DAO
                 select answer);
             return selected;
         }
-
-        private void MakeMocks()
+    
+        private void MakeTests()
         {
+            //_answers = new List<IAnswer>();
+            //using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\sqle2012; Initial Catalog=LoginDB; Integrated Security=True;"));
+            //{
+            //    connection.Open();
+            //    string query = "SELECT * FROM dbo.Answer";
+            //    using (SqlCommand command = new SqlCommand(query, connection))
+            //    {
+            //        using (SqlDataReader reader = command.ExecuteReader())
+            //        {
+            //            while (reader.Read())
+            //            {
+            //                columnData.Add(reader.GetString(0));
+            //            }
+            //        }
+            //    }
+            //}
             _answers = new List<IAnswer>()
             {
-                new DO.Answer(0, 0, "Metody Probabilistyczne", true),
-                new DO.Answer(1, 0, "Matematyka Dyskretna", true),
-                new DO.Answer(2, 0, "Programowanie Wizualne", false),
+                new DO.Answer(0, 0, "BOIO", false),
+                new DO.Answer(1, 0, "Analiza", false),
+                new DO.Answer(2, 0, "P4", true),
 
                 new DO.Answer(3, 1, "Tak", true),
                 new DO.Answer(4, 1, "Nie", false),
+
                 new DO.Answer(4, 2, "Tak", true),
                 new DO.Answer(5, 2, "Nie", false),
 
                 new DO.Answer(6, 3, "6", false),
                 new DO.Answer(7, 3, "7", true),
                 new DO.Answer(8, 3, "8", false),
-                new DO.Answer(9, 4, "Lech Wałęsa", false),
-                new DO.Answer(10, 4, "Bolesław Bierut", false),
-                new DO.Answer(11, 4, "Wojciech Jaruzelski", true),
+
+                new DO.Answer(9, 4, "Koleś 1", false),
+                new DO.Answer(10, 4, "Koleś 2", false),
+                new DO.Answer(11, 4, "Koleś 3", true),
+
                 new DO.Answer(12, 5, "1945", false),
-                new DO.Answer(13, 5, "1951", true),
-                new DO.Answer(14, 5, "1989", false),
+                new DO.Answer(13, 5, "1946", true),
+                new DO.Answer(14, 5, "1947", false),
+
                 new DO.Answer(15, 6, "954 km", false),
                 new DO.Answer(16, 6, "1402 km", false),
-                new DO.Answer(17, 6, "1047 km", true)           
+                new DO.Answer(17, 6, "1047 km p", true)
             };
 
             _questions = new List<IQuestion>()
@@ -81,20 +102,20 @@ namespace DAO
                 new DO.Question(0, 0, "Jak nie nazywa się przedmiot, który zaliczę tym projektem ?", 1),
 
                 new DO.Question(1, 0, "Czy Ziemia jest okrągła?", 1),
+
                 new DO.Question(2, 1, "Czy księżyc krąży wokół Ziemi?", 1),
 
                 new DO.Question(3, 2, "Z iloma krajami graniczy Polska:", 1),
-                new DO.Question(4, 2, "Pierwszym prezydentem II RP był:", 1),
-                new DO.Question(5, 2, "Ostateczny kształt granic Polskim, " +
-                                "obowiązujący do dziś, ustalono w roku:", 1),
+                new DO.Question(4, 2, "Pytanie o ziomka z czego 3 jest git:", 1),
+                new DO.Question(5, 2, "Która data jest po środku", 1),
                 new DO.Question(6, 2, "Długość Wisły to:", 1),
             };
 
             _tests = new List<ITest>()
             {
-                new DO.Test(0, "Krótki test o projekcie", 5),
-                new DO.Test(1, "Krótki test o planetach", 5),
-                new DO.Test(2, "Ile wiesz o Polsce?", 5)
+                new DO.Test(0, "Krótki Test 1", 5),
+                new DO.Test(1, "Jakiś teścik 2", 5),
+                new DO.Test(2, "Teścik 3", 5)
             };
 
             foreach (var test in _tests)
@@ -103,7 +124,6 @@ namespace DAO
                 {
                     if (question.TestID == test.ID)
                     {
-                        // add question to test
                         test.Questions.Add(question);
                         test.PointsTotal += question.Points;    
                     }
