@@ -115,11 +115,6 @@ namespace WpfMvvmApp.ViewModels
                         result = false;
                         break;
                     }
-                    //if (counter > 1)
-                    //{
-                    //    Trace.WriteLine("ZLA odp - niezaznaczona poprawna odp!");
-                    //    result = false;
-                    //}
                 }
 
                 return result;
