@@ -32,8 +32,8 @@ namespace DAO
         public IEnumerable<IQuestion> GetQuestions(int testID)
         {
             var selected = (from question in _questions
-                where question.TestID == testID
-                select question);
+                            where question.TestID == testID
+                            select question);
             return selected;
         }
 
@@ -45,57 +45,61 @@ namespace DAO
         public IEnumerable<IAnswer> GetAnswers(int questionID)
         {
             var selected = (from answer in _answers
-                where answer.QuestionID == questionID
-                select answer);
+                            where answer.QuestionID == questionID
+                            select answer);
             return selected;
         }
-    
+
         private void MakeTests()
         {
-            //_answers = new List<IAnswer>();
-            //using (SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost\sqle2012; Initial Catalog=LoginDB; Integrated Security=True;"));
-            //{
-            //    connection.Open();
-            //    string query = "SELECT * FROM dbo.Answer";
-            //    using (SqlCommand command = new SqlCommand(query, connection))
+            //    _answers = new List<IAnswer>();
+            //    using (var con = new SqlConnection("yourConnectionStringHere")
             //    {
-            //        using (SqlDataReader reader = command.ExecuteReader())
+            //        string qry="SELECT Column1 FROM Table1";
+            //        var cmd = new SqlCommand(qry, con);
+            //        cmd.CommandType = CommandType.Text;
+            //        con.Open();
+            //        using (SqlDataReader objReader = cmd.ExecuteReader())
+            //    {
+            //        if (objReader.HasRows)
             //        {
-            //            while (reader.Read())
+            //            while (objReader.Read())
             //            {
-            //                columnData.Add(reader.GetString(0));
+            //                string item = objReader.GetString(objReader.GetOrdinal("Column1"));
+            //                items.Add(item);
             //            }
             //        }
             //    }
             //}
+
             _answers = new List<IAnswer>()
-            {
-                new DO.Answer(0, 0, "BOIO", false),
-                new DO.Answer(1, 0, "Analiza", false),
-                new DO.Answer(2, 0, "P4", true),
+        {
+            new DO.Answer(0, 0, "BOIO", false),
+            new DO.Answer(1, 0, "Analiza", false),
+            new DO.Answer(2, 0, "P4", true),
 
-                new DO.Answer(3, 1, "Tak", true),
-                new DO.Answer(4, 1, "Nie", false),
+            new DO.Answer(3, 1, "Tak", true),
+            new DO.Answer(4, 1, "Nie", false),
 
-                new DO.Answer(4, 2, "Tak", true),
-                new DO.Answer(5, 2, "Nie", false),
+            new DO.Answer(4, 2, "Tak", true),
+            new DO.Answer(5, 2, "Nie", false),
 
-                new DO.Answer(6, 3, "6", false),
-                new DO.Answer(7, 3, "7", true),
-                new DO.Answer(8, 3, "8", false),
+            new DO.Answer(6, 3, "6", false),
+            new DO.Answer(7, 3, "7", true),
+            new DO.Answer(8, 3, "8", false),
 
-                new DO.Answer(9, 4, "Koleś 1", false),
-                new DO.Answer(10, 4, "Koleś 2", false),
-                new DO.Answer(11, 4, "Koleś 3", true),
+            new DO.Answer(9, 4, "Koleś 1", false),
+            new DO.Answer(10, 4, "Koleś 2", false),
+            new DO.Answer(11, 4, "Koleś 3", true),
 
-                new DO.Answer(12, 5, "1945", false),
-                new DO.Answer(13, 5, "1946", true),
-                new DO.Answer(14, 5, "1947", false),
+            new DO.Answer(12, 5, "1945", false),
+            new DO.Answer(13, 5, "1946", true),
+            new DO.Answer(14, 5, "1947", false),
 
-                new DO.Answer(15, 6, "954 km", false),
-                new DO.Answer(16, 6, "1402 km", false),
-                new DO.Answer(17, 6, "1047 km p", true)
-            };
+            new DO.Answer(15, 6, "954 km", false),
+            new DO.Answer(16, 6, "1402 km", false),
+            new DO.Answer(17, 6, "1047 km p", true)
+        };
 
             _questions = new List<IQuestion>()
             {
@@ -111,7 +115,7 @@ namespace DAO
                 new DO.Question(6, 2, "Długość Wisły to:", 1),
             };
 
-            _tests = new List<ITest>()
+    _tests = new List<ITest>()
             {
                 new DO.Test(0, "Krótki Test 1", 5),
                 new DO.Test(1, "Jakiś teścik 2", 5),
